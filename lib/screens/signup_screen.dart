@@ -48,12 +48,14 @@ class _SignupScreenState extends State<SignupScreen> {
         username: _usernameController.text,
         bio: _bioController.text,
         file: _image!);
+    if (response != 'success') {
+      showSnackBar(response, context);
+    } else {
+      showSnackBar("You registered!", context);
+    }
     setState(() {
       _isLoading = false;
     });
-    if (response != 'success') {
-      showSnackBar(response, context);
-    }
   }
 
   @override
